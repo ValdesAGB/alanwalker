@@ -2,9 +2,21 @@ import React from 'react'
 import { CV, beforeCover, cover, skills } from '../data'
 import styled from 'styled-components'
 
+const Container = styled.div`
+  background-color: #fff;
+  margin-bottom: 150px;
+  padding-top: 150px;
+`
+
 const CoverContainer = styled.div`
   width: 100%;
   padding-right: 50px;
+
+  @media (max-width: 1040px) {
+    padding-right: 0px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
 
   .coverContent {
     transform: translate3d(0px, 0px, 0px);
@@ -44,6 +56,10 @@ const Title = styled.h3`
   span {
     color: #e54b4b;
   }
+
+  @media (max-width: 768px) {
+    letter-spacing: 5px;
+  }
 `
 
 const ParagraphContainer = styled.div`
@@ -60,12 +76,21 @@ const SkillsContainer = styled.div`
     margin: 0px 0px 0px -20px;
     list-style-type: none;
 
+    @media (max-width: 768px) {
+      margin: 0px;
+    }
+
     li {
       margin: 0px 0px 13px 0px;
       float: left;
       width: 50%;
       position: relative;
       padding-left: 20px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        padding-left: 0px;
+      }
 
       i {
         width: 15px;
@@ -74,7 +99,10 @@ const SkillsContainer = styled.div`
         left: 0px;
         color: #000;
         margin-top: -1px;
-        font-weight: 900;
+
+        @media (max-width: 768px) {
+          left: -20px;
+        }
       }
 
       span {
@@ -102,10 +130,10 @@ const BtnContainer = styled.div`
 function AboutsMe() {
   return (
     <React.Fragment>
-      <section className="container">
-        <div>
+      <section id="about">
+        <Container className="container">
           <div className="row align-items-center">
-            <div className="col-5">
+            <div className="col-xl">
               <CoverContainer>
                 <div className="coverContent">
                   <img src={beforeCover} alt="Me" className="w-100" />
@@ -115,7 +143,7 @@ function AboutsMe() {
               </CoverContainer>
             </div>
 
-            <div className="col">
+            <div className="col-xl">
               <div>
                 <Title>
                   ABOUT <span>ME</span>
@@ -151,7 +179,7 @@ function AboutsMe() {
               </BtnContainer>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </React.Fragment>
   )
